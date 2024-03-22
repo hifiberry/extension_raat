@@ -1,0 +1,19 @@
+version: '3'
+services:
+  raat:
+    container_name: raat
+    restart: always
+    image: ghcr.io/hifiberry/extension_raat:latest
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
+    network_mode: host
+    devices:
+      - /dev/snd:/dev/snd
+    volumes:
+      - /etc/hifiberry_raat.conf:/etc/hifiberry_raat.conf
+      - /etc/asound.conf:/etc/asound.conf
+      - /run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
+      - /tmp:/tmp
+    group_add:
+      - 2001
