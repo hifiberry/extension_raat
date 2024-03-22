@@ -1,0 +1,3 @@
+[submodule "raat"]
+	path = raat
+	url = https://github.com/hifiberry/raat

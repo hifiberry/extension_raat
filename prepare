@@ -1,0 +1,24 @@
+#!/bin/sh
+cd `dirname $0`
+. /etc/hifiberry.state
+
+if [ ! -f /etc/hifiberry_raat.conf ]; then
+  touch /etc/hifiberry_raat.conf
+fi
+
+if [ ! -f /etc/dbus-1/system.d/raat.conf ]; then
+
+cat <<EOF>/etc/dbus-1/system.d/raat.conf
+<!DOCTYPE busconfig PUBLIC "-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
+<busconfig>
+
+  <policy user="player">
+    <allow own="org.mpris.MediaPlayer2.raat"/>
+  </policy>
+
+</busconfig>
+EOF
+systemctl restart dbus
+
+fi
