@@ -80,7 +80,7 @@ var exec = require("child_process").exec;
 	
 	
 	function getRoonStatus(callback) {
-		exec("systemctl is-active --quiet raat.service").on('exit', function(code) {
+		exec("/opt/hifiberry/bin/extensions running raat").on('exit', function(code) {
 			if (code == 0) {
 				roonEnabled = true;
 				callback(true);
@@ -93,7 +93,7 @@ var exec = require("child_process").exec;
 	
 	function setRoonStatus(enabled, callback) {
 		if (enabled) {
-			exec("systemctl enable --now raat.service").on('exit', function(code) {
+			exec("/opt/hifiberry/bin/extensions start raat").on('exit', function(code) {
 				if (code == 0) {
 					roonEnabled = true;
 					if (debug) console.log("Roon enabled.");
@@ -104,7 +104,7 @@ var exec = require("child_process").exec;
 				}
 			});
 		} else {
-			exec("systemctl disable --now raat.service").on('exit', function(code) {
+			exec("/opt/hifiberry/bin/extensions stop raat").on('exit', function(code) {
 				roonEnabled = false;
 				if (code == 0) {
 					callback(false);
