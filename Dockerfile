@@ -32,6 +32,7 @@ RUN apk update && apk add --no-cache \
 # Copy the compiled binary from the build container
 COPY --from=builder /opt/raat/bin/release/linux/aarch64/raat_app /usr/local/bin/raat_app
 COPY --from=builder /opt/raat/bin/release/linux/aarch64/raatool /usr/local/bin/raatool
+COPY docker/pause-other-players /opt/hifiberry/bin/pause-all
 
 # Set up any additional configuration or dependencies
 # (e.g., configure environment variables, install required libraries)
