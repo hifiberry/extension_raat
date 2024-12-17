@@ -15,5 +15,6 @@ services:
       - /etc/asound.conf:/etc/asound.conf
       - /run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
       - /tmp:/tmp
+      - /run/pipewire:/run/pipewire
     group_add:
       - 2001

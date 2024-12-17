@@ -25,7 +25,9 @@ RUN apk update && apk add --no-cache \
     alsa-lib \
     curl \
     glib \
-    alsa-utils && \
+    alsa-utils \
+    pipewire-libs \
+    pipewire-alsa && \
     addgroup -S raat && \
     adduser -S -G raat -u 2002 raat 
 
