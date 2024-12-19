@@ -1,5 +1,6 @@
 #!/bin/sh
-IMAGEID=$1
-docker tag $IMAGEID ghcr.io/hifiberry/extension_raat:latest
-docker push ghcr.io/hifiberry/extension_raat:latest
-
+NAME=extension_raat
+VERSION=`cat version`
+IMAGEID=raat:$VERSION
+docker tag $IMAGEID ghcr.io/hifiberry/$NAME:$VERSION
+docker push ghcr.io/hifiberry/$NAME:$VERSION

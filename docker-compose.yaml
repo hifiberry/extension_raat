@@ -3,7 +3,7 @@ services:
   raat:
     container_name: raat
     restart: always
-    image: ghcr.io/hifiberry/extension_raat:1.1.39
+    image: ghcr.io/hifiberry/extension_raat:1.1.39-pw
     #build:
     #  context: .
     #  dockerfile: Dockerfile
